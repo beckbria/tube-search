@@ -1,4 +1,4 @@
-package tube_search
+package main
 
 // Schema: https://api-portal.tfl.gov.uk/api-details#api=Line&operation=Line_RouteByModeByPathModesQueryServiceTypes
 

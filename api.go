@@ -1,4 +1,4 @@
-package tube_search
+package main
 
 import (
 	"encoding/json"
