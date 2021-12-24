@@ -75,7 +75,7 @@ type Tfl11 struct {
 	SmsCode              string   `json:"smsCode"`
 	StopType             string   `json:"stopType"`
 	StationNaptan        string   `json:"stationNaptan"`
-	AccessibilitySumary  string   `json:"accessibilitySumary"`
+	AccessibilitySummary string   `json:"accessibilitySummary"`
 	HubNaptanCode        string   `json:"hubNaptanCode"`
 	Lines                []Tfl6   `json:"lines"`
 	LineGroup            []Tfl7   `json:"lineGroup"`
@@ -174,4 +174,58 @@ type Tfl19 struct {
 	RouteSections []Tfl17 `json:"routeSections"`
 	ServiceTypes  []Tfl18 `json:"serviceTypes"`
 	Crowding      Tfl5    `json:"crowding"`
+}
+
+// Schema: https://api-portal.tfl.gov.uk/api-details#api=Line&operation=Line_RouteSequenceByPathIdPathDirectionQueryServiceTypesQueryExcludeCrowding
+
+type Tfl20 struct {
+	RouteId              int32    `json:"routeId"`
+	ParentId             string   `json:"parentId"`
+	StationId            string   `json:"stationId"`
+	IcsId                string   `json:"icsId"`
+	TopMostParentId      string   `json:"topMostParentId"`
+	Direction            string   `json:"direction"`
+	Towards              string   `json:"towards"`
+	Modes                []string `json:"modes"`
+	StopType             string   `json:"stopType"`
+	StopLetter           string   `json:"stopLetter"`
+	Zone                 string   `json:"zone"`
+	AccessibilitySummary string   `json:"accessibilitySummary"`
+	HasDisruption        bool     `json:"hasDisruption"`
+	Lines                []Tfl6   `json:"lines"`
+	Status               bool     `json:"status"`
+	Id                   string   `json:"id"`
+	Url                  string   `json:"url"`
+	Name                 string   `json:"name"`
+	Lat                  float64  `json:"lat"`
+	Lon                  float64  `json:"lon"`
+}
+
+type Tfl21 struct {
+	LineId        string  `json:"lineId"`
+	LineName      string  `json:"lineName"`
+	Direction     string  `json:"direction"`
+	BranchId      int32   `json:"branchId"`
+	NextBranchIds []int   `json:"nextBranchIds"`
+	PrevBranchIds []int   `json:"prevBranchIds"`
+	StopPoint     []Tfl20 `json:"stopPoint"`
+	ServiceType   string  `json:"serviceType"`
+}
+
+type Tfl22 struct {
+	Name        string   `json:"name"`
+	NaptanIds   []string `json:"naptanIds"`
+	ServiceType string   `json:"serviceType"`
+}
+
+type Tfl23 struct {
+	LineId             string   `json:"lineId"`
+	LineName           string   `json:"lineName"`
+	Direction          string   `json:"direction"`
+	IsOutboundOnly     bool     `json:"isOutboundOnly"`
+	Mode               string   `json:"mode"`
+	LineStrings        []string `json:"lineStrings"`
+	Stations           []Tfl20  `json:"stations"`
+	StopPointSequences []Tfl21  `json:"stopPointSequences"`
+	OrderedLineRoutes  []Tfl22  `json:"orderedLineRoutes"`
 }

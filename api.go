@@ -54,6 +54,16 @@ func GetStopsForLine(lineId string) ([]Tfl11, error) {
 	return stops, nil
 }
 
-// Stop order for line
-// https://api.tfl.gov.uk/swagger/ui/index.html?url=/swagger/docs/v1#!/Line/Line_RouteSequence
-// https://api.tfl.gov.uk/Line/Line/{id}/Route/Sequence/{direction
+func GetLineSequence(lineId string) (Tfl23, error) {
+	var route Tfl23
+
+	// Stop order for line
+	// https://api-portal.tfl.gov.uk/api-details#api=Line&operation=Line_RouteSequenceByPathIdPathDirectionQueryServiceTypesQueryExcludeCrowding
+	apiRoute, err := fetchApi(fmt.Sprintf("https://api.tfl.gov.uk/Line/%s/Route/Sequence/all", lineId))
+	if err != nil {
+		return route, err
+	}
+
+	json.Unmarshal([]byte(apiRoute), &route)
+	return route, nil
+}
