@@ -54,5 +54,6 @@ func GetStopsForLine(lineId string) ([]Tfl11, error) {
 	return stops, nil
 }
 
-// For each route, get a list of stops on it
-// https://api.tfl.gov.uk/Line/{id}/StopPoints
+// Stop order for line
+// https://api.tfl.gov.uk/swagger/ui/index.html?url=/swagger/docs/v1#!/Line/Line_RouteSequence
+// https://api.tfl.gov.uk/Line/Line/{id}/Route/Sequence/{direction
