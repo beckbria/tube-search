@@ -167,7 +167,7 @@ type Tfl19 struct {
 	Id            string  `json:"id"`
 	Name          string  `json:"name"`
 	ModeName      string  `json:"modeName"`
-	Fisruptions   []Tfl14 `json:"disruptions"`
+	Disruptions   []Tfl14 `json:"disruptions"`
 	Created       string  `json:"created"`
 	Modified      string  `json:"modified"`
 	LineStatuses  []Tfl16 `json:"lineStatuses"`
